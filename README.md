@@ -11,7 +11,7 @@ This microservice receives requests to create new quotations, providing a format
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/
+   git clone https://github.com/Deskech/isadent-Quotation-Microservice
 ## Prerequisites
 - **Java 17**
 - **Maven**

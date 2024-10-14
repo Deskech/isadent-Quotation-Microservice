@@ -26,7 +26,7 @@ public class QuotationRestController {
      * @return a new Quotation ready to be converted to pdf or view
      */
     @CrossOrigin
-    @PostMapping("/Quotation")
+    @PostMapping("/quotation/create")
     public IsadentQuotation crearNewCotizacionIsadent(@RequestBody NewQuotation newQuotation){
         return newCotizacionMaker.makeNewCotizacion(newQuotation);
     }

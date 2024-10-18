@@ -20,6 +20,7 @@ This microservice receives requests to create new quotations, providing a format
 
 ## Documentation
 Comming soon...
+
 ## Examples
 In order to get make a new Quotation we need to do it like this:
 ```http

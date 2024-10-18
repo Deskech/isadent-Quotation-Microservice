@@ -10,10 +10,10 @@ import org.springframework.stereotype.Service;
  * Service class for creating a new Isadent quotation.
  */
 @Service
-public class NewCotizacionMaker {
+public class NewQuotationMaker {
     private final NewIsadentQuotation<NewQuotation> newIsadentQuotation;
     @Autowired
-    public NewCotizacionMaker(NewIsadentQuotation<NewQuotation> newIsadentQuotation){
+    public NewQuotationMaker(NewIsadentQuotation<NewQuotation> newIsadentQuotation){
         this.newIsadentQuotation = newIsadentQuotation;
     }
     /**

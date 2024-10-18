@@ -1,7 +1,7 @@
 package com.isadent.cotizaciones.microservicio.Infraestructure.Adapters.Input;
 
 import com.isadent.cotizaciones.microservicio.Application.Dtos.NewQuotation;
-import com.isadent.cotizaciones.microservicio.Application.Services.NewCotizacionMaker;
+import com.isadent.cotizaciones.microservicio.Application.Services.NewQuotationMaker;
 import com.isadent.cotizaciones.microservicio.Domain.Model.IsadentQuotation;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 
 public class QuotationRestController {
-    private final NewCotizacionMaker newCotizacionMaker;
+    private final NewQuotationMaker newQuotationMaker;
 
-    public QuotationRestController(NewCotizacionMaker newCotizacionMaker){
-        this.newCotizacionMaker = newCotizacionMaker;
+    public QuotationRestController(NewQuotationMaker newQuotationMaker){
+        this.newQuotationMaker = newQuotationMaker;
     }
 
     /**
@@ -28,6 +28,6 @@ public class QuotationRestController {
     @CrossOrigin
     @PostMapping("/quotation/create")
     public IsadentQuotation crearNewCotizacionIsadent(@RequestBody NewQuotation newQuotation){
-        return newCotizacionMaker.makeNewCotizacion(newQuotation);
+        return newQuotationMaker.makeNewCotizacion(newQuotation);
     }
 }

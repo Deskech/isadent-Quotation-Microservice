@@ -50,12 +50,12 @@ public class NewIsadentQuotationImp implements NewIsadentQuotation<NewQuotation>
         // consults the dental procedures prices in the database
         List<ImprovementPlan> improvementPlan = improvementPlanRepository.getImprovementPlan(newQuotation);
         //calculate the Quotation's total amount
-        Double totalPrecio = improvementPlan.stream().map(ImprovementPlan::getPrice).reduce(0.0, Double::sum);
-        Double total = totalPriceProcedures.procedimietoTotal(totalPrecio, newQuotation.getPayment());
+        Double totalPrice = improvementPlan.stream().map(ImprovementPlan::getPrice).reduce(0.0, Double::sum);
+        Double total = totalPriceProcedures.procedimietoTotal(totalPrice, newQuotation.getPayment());
         // Create the quotation date
-        String fecha = quotationDate.createQuotationDate();
+        String date = quotationDate.createQuotationDate();
         // create the money format for the total
-        String totalEnDinero = currencyFormat.createMoneyFormat(total);
+        String totalCurrency = currencyFormat.createMoneyFormat(total);
         // instance a new Payment to send it to the Payment microservice
         Payment paymentToSend = new Payment(newQuotation.getPatientName(), newQuotation.getPayment());
         publishPayment.publishNewPayment(paymentToSend);
@@ -63,11 +63,11 @@ public class NewIsadentQuotationImp implements NewIsadentQuotation<NewQuotation>
         IsadentQuotation isadent = new IsadentQuotation();
         isadent.setPatientName(newQuotation.getPatientName());
         isadent.setImprovementPlan(improvementPlan);
-        isadent.setPaymentDate(fecha);
-        isadent.setTotal(totalEnDinero);
+        isadent.setPaymentDate(date);
+        isadent.setTotal(totalCurrency);
         isadent.setPayment(abonoCurrency);
         PublishedQuotation publishedQuotation = new PublishedQuotation(improvementPlan, newQuotation.getPayment(), newQuotation.getPatientName(),
-                total,fecha
+                total,date
                 );
         //publish the event to the Bill microservice
         publishIsadentQuotation.publishQuotation(publishedQuotation);

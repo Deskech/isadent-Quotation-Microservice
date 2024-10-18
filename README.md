@@ -11,7 +11,7 @@ This microservice receives requests to create new quotations, providing a format
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/
+   git clone https://github.com/Deskech/isadent-Quotation-Microservice.git
 ## Prerequisites
 - **Java 17**
 - **Maven**
@@ -19,10 +19,11 @@ This microservice receives requests to create new quotations, providing a format
 - **MySQL**
 
 ## Documentation
+Comming soon...
 ## Examples
 In order to get make a new Quotation we need to do it like this:
 ```http
-POST /Quotation
+POST /quotation/create
 
 Content-Type: application/json
 ```
@@ -56,3 +57,4 @@ Content-Type: application/json
 }
 ```
 ## License
+Comming soon...
